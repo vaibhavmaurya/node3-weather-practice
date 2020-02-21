@@ -6,6 +6,9 @@ const forecast = require('./utils/forecast');
 
 const app = express();
 
+// set by Heroku
+const port = process.env.PORT || 3000;
+
 // console.log(__dirname);
 // console.log(__filename);
 
@@ -94,8 +97,18 @@ app.get('/products', (req, res) => {
     });
 });
 
+/*
+ Call fetch with relative url based on Heroku host name
+
+ fetch('/weather?address=Bangalore').then((response) => {
+    response.json().then(() => {
+        
+    })
+ })
+*/
+
 
 // listen to 3000 ports
-app.listen(3000, () => {
-    console.log('Server is up !!');
+app.listen(port, () => {
+    console.log('Server is up at '+port);
 });
