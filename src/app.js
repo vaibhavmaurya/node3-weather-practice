@@ -94,6 +94,8 @@ app.get('/products', (req, res) => {
     });
 });
 
+
+// listen to 3000 ports
 app.listen(3000, () => {
     console.log('Server is up !!');
 });
