@@ -29,7 +29,9 @@ const forecast = (lat, long, callBack) => {
             callBack({
                 summary : body.currently.summary,
                 temperature : body.currently.temperature,
-                rainForecast : body.currently.precipProbability * 100
+                rainForecast : body.currently.precipProbability * 100,
+                temperatureLow : body.daily.data[0].temperatureLow,
+                temperatureHigh : body.daily.data[0].temperatureHigh
             });
         }
     });

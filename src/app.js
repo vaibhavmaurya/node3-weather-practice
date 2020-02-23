@@ -67,7 +67,12 @@ app.get('/weather', (req, res) => {
                 error : error
             });
         }
-        forecast(lat, long, ({summary, temperature, rainForecast, error} = {}) => {
+        forecast(lat, long, ({summary, 
+                              temperature, 
+                              rainForecast,
+                              temperatureLow,
+                              temperatureHigh, 
+                              error} = {}) => {
             if(error){
                 return res.send({
                     error : error
@@ -76,6 +81,8 @@ app.get('/weather', (req, res) => {
             res.send({
                 summary,
                 temperature,
+                temperatureLow,
+                temperatureHigh,
                 rainForecast,
                 placeName
             });
